@@ -1,5 +1,6 @@
 package sg.edu.rp.c346.democooldrawer;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -54,7 +55,11 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new VaccinationFragment();
                 else if (position == 2)
                     fragment = new AnniversaryFragment();
-
+                else if (position== 3) {
+                    Intent i = new Intent(MainActivity.this,
+                            AboutActivity.class);
+                    startActivity(i);
+                }
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction trans = fm.beginTransaction();
                 trans.replace(R.id.content_frame, fragment);
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the drawer toggle as the DrawerListener
         drawerLayout.addDrawerListener(drawerToggle);
         ab.setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override
@@ -119,6 +125,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    }
+}
 
